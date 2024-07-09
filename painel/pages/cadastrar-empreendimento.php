@@ -14,9 +14,12 @@
         if ($imagem['name'] !== '' && Painel::imagemValida($imagem)) {
           // Realizar upload da imagem
           $idImagem = Painel::uploadFile($imagem);
+
+         $slug = Painel::generateSlug($nome);
+
           // Inserir empreendimento no banco de dados 
-          $sql = MySql::connect()->prepare("INSERT INTO `empreendimentos` VALUES (null, ?, ?, ?, ?, ?)");
-          $sql->execute(array($nome, $tipo, $preco, $idImagem, 0));
+          $sql = MySql::connect()->prepare("INSERT INTO `empreendimentos` VALUES (null, ?, ?, ?, ?, ?, ?)");
+          $sql->execute(array($nome, $tipo, $preco, $idImagem, $slug, 0));
           $lastId = MySql::connect()->lastInsertId();
           MySql::connect()->exec("UPDATE `empreendimentos` SET order_id = $lastId WHERE id = $lastId");
           // Mensagem de sucesso

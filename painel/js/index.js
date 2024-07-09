@@ -1,5 +1,5 @@
 // Plugin maskMoney
-if (location.href === 'http://localhost/gestao_imoveis/painel/cadastrar-empreendimento') {
+if (location.href === 'http://localhost/site_imoveis/painel/cadastrar-empreendimento') {
   $('#preco').maskMoney({prefix:'R$ ', allowNegative: true, thousands:'.', decimal:',', affixesStay: false});
 }
 
@@ -12,7 +12,7 @@ if (location.href.includes('editar-imovel')) {
 }
 
 // Ordenar empreendimentos com biblioteca jQuery UI
-if (location.href === 'http://localhost/gestao_imoveis/painel/listar-empreendimentos') {
+if (location.href === 'http://localhost/site_imoveis/painel/listar-empreendimentos') {
   $( function() {
     $( "#sortable" ).sortable({
       start: function() {
@@ -27,7 +27,7 @@ if (location.href === 'http://localhost/gestao_imoveis/painel/listar-empreendime
         el.find('.single-empreendimento').css('border', '1px solid #ccc ');
         
         $.ajax({
-          url: 'http://localhost/gestao_imoveis/painel/ajax/order.php',
+          url: 'http://localhost/site_imoveis/painel/ajax/order.php',
           method: 'post',
           data: data
         }).done(function(data) {
