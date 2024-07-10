@@ -13,9 +13,14 @@
     <div class="logo">Inovel</div>
     <nav class="menu">
       <ul>
-        <li><a href="">Centro Empresarial 1</a></li>
-        <li><a href="">Centro Empresarial 2</a></li>
-        <li><a href="">Centro Empresarial 3</a></li>
+        <?php
+          $selectEmpreendimentos = MySql::connect()->prepare("SELECT * FROM `empreendimentos` ORDER BY order_id ASC");
+          $selectEmpreendimentos->execute();
+          $empreendimentos = $selectEmpreendimentos->fetchAll();
+          foreach ($empreendimentos as $key => $value) {
+        ?>
+          <li><a href="<?php echo INCLUDE_PATH; ?>?empreendimento=<?php echo $value['slug'] ?>"><?php echo $value['nome'] ?></a></li>
+        <?php } ?>
       </ul>
     </nav>
   </section>
