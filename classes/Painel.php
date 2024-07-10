@@ -23,6 +23,18 @@
       return $str;
     }
 
+    public static function formatarMoeda($valor) {
+      // Formatar preço para um valor que o php consiga ler
+      $valor = str_replace('.', '', $valor);
+      $valor = str_replace(',', '.', $valor);
+      return $valor;
+    }
+
+    // Formatar o preço para a moeda brasileira
+    public static function convertMoney($valor) {
+      return number_format($valor, 2, ',', '.');
+    }
+
      // Mensagem indicativa de sucesso ou erro
      public static function alert($type, $message) {
       if ($type === 'sucesso') {

@@ -26,7 +26,7 @@
         // Obtendo valores dos inputs
         $empreendimentoId = $id;
         $nome = $_POST['nome'];
-        $preco = $_POST['preco'];
+        $preco = Painel::formatarMoeda($_POST['preco']);
         $area = $_POST['area'];
 
         // obtendo todas as imagens selecionadas
