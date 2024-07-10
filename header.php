@@ -29,7 +29,7 @@
 <div class="container">
 <section class="search1">
     <h2>O que você procura?</h2>
-    <input type="text" name="texto-busca">
+    <input type="text" name="texto-busca" id="texto-busca">
 </section>
 
 <section class="search2">
